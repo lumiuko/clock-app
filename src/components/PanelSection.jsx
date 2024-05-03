@@ -1,6 +1,6 @@
 import Panel from './Panel/Panel'
 
-export default function InfoPanel({ isExpanded, timeData }) {
+export default function PanelSection({ isExpanded, timeData }) {
   if (!timeData) return
   const classNames = `footer ${isExpanded ? 'max-h-[256px] md:max-h-[440px] xl:max-h-[400px] xl:mt-0' : 'max-h-0 xl:mt-10'} overflow-hidden`
 

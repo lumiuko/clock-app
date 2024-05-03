@@ -21,6 +21,7 @@ function Clock({ timeData, isExpanded, togglePanel }) {
   }, [isDark])
 
   let timeOfDay = ''
+
   if (hours >= 5 && hours < 12) {
     timeOfDay = 'morning'
   } else if (hours >= 12 && hours < 18) {
