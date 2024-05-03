@@ -21,7 +21,7 @@ export default function Quote({ isExpanded }) {
           aria-live="polite"
         >
           <p>“{quotes[quoteIndex].en}”</p>
-          <footer className="font-bold">{quotes[quoteIndex].author}</footer>
+          <p className="font-bold">{quotes[quoteIndex].author}</p>
         </blockquote>
         <button aria-label="Refresh quote" onClick={randomizeQuote} className="opacity-50 hover:opacity-100 transition-opacity">
           <img src="/desktop/icon-refresh.svg" alt="" aria-hidden="true" />
