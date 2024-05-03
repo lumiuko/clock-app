@@ -1,8 +1,10 @@
 import { useEffect, memo } from 'react'
 import useSWR from 'swr'
+import dayjs from '../utils/date'
 
 function Clock({ timeData, isExpanded, togglePanel }) {
-  const date = new Date(timeData.unixtime * 1000)
+  const unixDate = dayjs.unix(timeData.unixtime)
+  const date = dayjs.tz(unixDate, timeData.timezone)
 
   const {
     data: locationData,
@@ -10,8 +12,8 @@ function Clock({ timeData, isExpanded, togglePanel }) {
     error: locationError
   } = useSWR(['https://api.ipbase.com/v2/info', { apikey: import.meta.env.VITE_APP_IPBASE_API_KEY }])
 
-  const hours = date.getHours()
-  const minutes = date.getMinutes()
+  const hours = date.hour()
+  const minutes = date.minute()
   const isDark = hours >= 18 || hours < 5
 
   useEffect(() => {
